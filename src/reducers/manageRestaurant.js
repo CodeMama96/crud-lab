@@ -1,11 +1,15 @@
-//import cuid from 'cuid';
+import cuid from 'cuid';
 
 export default function manageRestaurants(state = {
-    restuarnts: []
+    restaurants: []
 }, action) {
+   
     switch(action.type){
-        case 'ADD_RESTUARANTS':
-            return {...state, restuarants: [...state.restuarants]}
+       
+        case 'ADD_RESTAURANT':
+            
+            const restaurant = {id: cuid, text: action.text}
+            return {...state, restaurants: [...state.restaurants, restaurant]}
 
         default:
             return state;
